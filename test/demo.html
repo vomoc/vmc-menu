@@ -1031,6 +1031,352 @@
                 // 所有这些都是自动完成的，无需手动调用任何方法</code>
         </div>
     </div>
+
+    <!-- 章节 8: CSS变量自定义样式演示 -->
+    <div class="demo-section" id="section-8">
+        <h2>8. CSS变量自定义样式演示</h2>
+        <p>VmcMenu 支持通过 CSS 变量来自定义菜单的样式，包括颜色、尺寸、字体等。你可以在菜单容器上定义这些变量来改变菜单的外观，无需修改 CSS 文件。</p>
+
+        <div class="note">
+            <strong>说明：</strong>通过定义 CSS 变量，你可以轻松地改变菜单的主题色彩，创建符合你网站风格的导航菜单。下面展示了红色调和蓝色调两种主题样式。
+        </div>
+
+        <div class="config-demo">
+            <div class="config-item">
+                <h3>红色调主题</h3>
+                <p>使用红色作为主色调，搭配金色作为强调色</p>
+                <style>
+                    #demo-menu-8a {
+                        --vmc-menu-width: 100%;
+                        --vmc-menu-height: 60px;
+                        --vmc-menu-z-index: 9;
+                        --vmc-menu-bg: #B10000;
+                        --vmc-menu-text-color: #FFF;
+                        --vmc-menu-font-size: 16px;
+                        --vmc-menu-font-weight: normal;
+                        --vmc-menu-icon-size: 20px;
+                        --vmc-menu-hover-bg: #D10000;
+                        --vmc-menu-hover-text-color: #FFD700;
+                        --vmc-menu-active-bg: #7e0202;
+                        --vmc-menu-active-text-color: #FFD700;
+                        --vmc-menu-children-height: 45px;
+                        --vmc-menu-children-bg: #FFD700;
+                        --vmc-menu-children-text-color: #390303;
+                        --vmc-menu-children-font-size: 14px;
+                        --vmc-menu-children-font-weight: normal;
+                        --vmc-menu-children-icon-size: 14px;
+                        --vmc-menu-children-hover-bg: #B10000;
+                        --vmc-menu-children-hover-text-color: #FFFFFF;
+                        --vmc-menu-children-active-bg: #ec9c0a;
+                        --vmc-menu-children-active-text-color: #B10000;
+                        --vmc-menu-current-bar-color: #FFD700;
+                        --vmc-menu-current-bar-height: 5px;
+                    }
+                </style>
+                <div class="demo-menu-wrapper">
+                    <div class="vui-menu" id="demo-menu-8a">
+                        <ul class="vui-main">
+                            <li class="vui-item">
+                                <a href="#" class="vui-item-value" data-menu-id="red-home">
+                                    <span class="vui-item-value-icon">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/>
+                                        </svg>
+                                    </span>
+                                    <span class="vui-item-value-text">首页</span>
+                                </a>
+                            </li>
+                            <li class="vui-item">
+                                <a href="#" class="vui-item-value" data-menu-id="red-about">
+                                    <span class="vui-item-value-icon">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/>
+                                        </svg>
+                                    </span>
+                                    <span class="vui-item-value-text">关于我们</span>
+                                </a>
+                                <ul class="vui-children">
+                                    <li class="vui-child-item">
+                                        <a href="#" class="vui-child-value" data-menu-id="red-company">
+                                            <span class="vui-child-value-icon">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 7V3H2v18h20V7H12z" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                            <span class="vui-child-value-text">公司简介</span>
+                                        </a>
+                                    </li>
+                                    <li class="vui-child-item">
+                                        <a href="#" class="vui-child-value" data-menu-id="red-team">
+                                            <span class="vui-child-value-icon">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3z" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                            <span class="vui-child-value-text">团队介绍</span>
+                                        </a>
+                                    </li>
+                                    <li class="vui-child-item">
+                                        <a href="#" class="vui-child-value" data-menu-id="red-contact">
+                                            <span class="vui-child-value-icon">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                            <span class="vui-child-value-text">联系我们</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="vui-item">
+                                <a href="#" class="vui-item-value" data-menu-id="red-products">
+                                    <span class="vui-item-value-icon">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z" fill="currentColor"/>
+                                        </svg>
+                                    </span>
+                                    <span class="vui-item-value-text">产品中心</span>
+                                </a>
+                                <ul class="vui-children">
+                                    <li class="vui-child-item">
+                                        <a href="#" class="vui-child-value" data-menu-id="red-product1">
+                                            <span class="vui-child-value-icon">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                            <span class="vui-child-value-text">产品一</span>
+                                        </a>
+                                    </li>
+                                    <li class="vui-child-item">
+                                        <a href="#" class="vui-child-value" data-menu-id="red-product2">
+                                            <span class="vui-child-value-icon">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                            <span class="vui-child-value-text">产品二</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="vui-item">
+                                <a href="#" class="vui-item-value" data-menu-id="red-news">
+                                    <span class="vui-item-value-icon">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" fill="currentColor"/>
+                                        </svg>
+                                    </span>
+                                    <span class="vui-item-value-text">新闻动态</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="config-item">
+                <h3>蓝色调主题</h3>
+                <p>使用蓝色作为主色调，搭配金色作为强调色</p>
+                <style>
+                    #demo-menu-8b {
+                        --vmc-menu-width: 100%;
+                        --vmc-menu-height: 60px;
+                        --vmc-menu-z-index: 9;
+                        --vmc-menu-bg: #0066CC;
+                        --vmc-menu-text-color: #FFF;
+                        --vmc-menu-font-size: 16px;
+                        --vmc-menu-font-weight: normal;
+                        --vmc-menu-icon-size: 20px;
+                        --vmc-menu-hover-bg: #0080FF;
+                        --vmc-menu-hover-text-color: #FFD700;
+                        --vmc-menu-active-bg: #004C99;
+                        --vmc-menu-active-text-color: #FFD700;
+                        --vmc-menu-children-height: 45px;
+                        --vmc-menu-children-bg: #FFD700;
+                        --vmc-menu-children-text-color: #003366;
+                        --vmc-menu-children-font-size: 14px;
+                        --vmc-menu-children-font-weight: normal;
+                        --vmc-menu-children-icon-size: 14px;
+                        --vmc-menu-children-hover-bg: #0066CC;
+                        --vmc-menu-children-hover-text-color: #FFFFFF;
+                        --vmc-menu-children-active-bg: #FFA500;
+                        --vmc-menu-children-active-text-color: #0066CC;
+                        --vmc-menu-current-bar-color: #FFD700;
+                        --vmc-menu-current-bar-height: 5px;
+                    }
+                </style>
+                <div class="demo-menu-wrapper">
+                    <div class="vui-menu" id="demo-menu-8b">
+                        <ul class="vui-main">
+                            <li class="vui-item">
+                                <a href="#" class="vui-item-value" data-menu-id="blue-home">
+                                    <span class="vui-item-value-icon">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/>
+                                        </svg>
+                                    </span>
+                                    <span class="vui-item-value-text">首页</span>
+                                </a>
+                            </li>
+                            <li class="vui-item">
+                                <a href="#" class="vui-item-value" data-menu-id="blue-about">
+                                    <span class="vui-item-value-icon">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/>
+                                        </svg>
+                                    </span>
+                                    <span class="vui-item-value-text">关于我们</span>
+                                </a>
+                                <ul class="vui-children">
+                                    <li class="vui-child-item">
+                                        <a href="#" class="vui-child-value" data-menu-id="blue-company">
+                                            <span class="vui-child-value-icon">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 7V3H2v18h20V7H12z" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                            <span class="vui-child-value-text">公司简介</span>
+                                        </a>
+                                    </li>
+                                    <li class="vui-child-item">
+                                        <a href="#" class="vui-child-value" data-menu-id="blue-team">
+                                            <span class="vui-child-value-icon">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3z" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                            <span class="vui-child-value-text">团队介绍</span>
+                                        </a>
+                                    </li>
+                                    <li class="vui-child-item">
+                                        <a href="#" class="vui-child-value" data-menu-id="blue-contact">
+                                            <span class="vui-child-value-icon">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                            <span class="vui-child-value-text">联系我们</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="vui-item">
+                                <a href="#" class="vui-item-value" data-menu-id="blue-products">
+                                    <span class="vui-item-value-icon">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z" fill="currentColor"/>
+                                        </svg>
+                                    </span>
+                                    <span class="vui-item-value-text">产品中心</span>
+                                </a>
+                                <ul class="vui-children">
+                                    <li class="vui-child-item">
+                                        <a href="#" class="vui-child-value" data-menu-id="blue-product1">
+                                            <span class="vui-child-value-icon">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                            <span class="vui-child-value-text">产品一</span>
+                                        </a>
+                                    </li>
+                                    <li class="vui-child-item">
+                                        <a href="#" class="vui-child-value" data-menu-id="blue-product2">
+                                            <span class="vui-child-value-icon">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                            <span class="vui-child-value-text">产品二</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="vui-item">
+                                <a href="#" class="vui-item-value" data-menu-id="blue-news">
+                                    <span class="vui-item-value-icon">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" fill="currentColor"/>
+                                        </svg>
+                                    </span>
+                                    <span class="vui-item-value-text">新闻动态</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="code-block">
+            <code>// 红色调主题 CSS 变量配置
+                &lt;style&gt;
+                #my-menu {
+                --vmc-menu-width: 100%;
+                --vmc-menu-height: 60px;
+                --vmc-menu-z-index: 9;
+                --vmc-menu-bg: #B10000;
+                --vmc-menu-text-color: #FFF;
+                --vmc-menu-font-size: 16px;
+                --vmc-menu-font-weight: normal;
+                --vmc-menu-icon-size: 20px;
+                --vmc-menu-hover-bg: #D10000;
+                --vmc-menu-hover-text-color: #FFD700;
+                --vmc-menu-active-bg: #7e0202;
+                --vmc-menu-active-text-color: #FFD700;
+                --vmc-menu-children-height: 45px;
+                --vmc-menu-children-bg: #FFD700;
+                --vmc-menu-children-text-color: #390303;
+                --vmc-menu-children-font-size: 14px;
+                --vmc-menu-children-font-weight: normal;
+                --vmc-menu-children-icon-size: 14px;
+                --vmc-menu-children-hover-bg: #B10000;
+                --vmc-menu-children-hover-text-color: #FFFFFF;
+                --vmc-menu-children-active-bg: #ec9c0a;
+                --vmc-menu-children-active-text-color: #B10000;
+                --vmc-menu-current-bar-color: #FFD700;
+                --vmc-menu-current-bar-height: 5px;
+                }
+                &lt;/style&gt;
+
+                // 蓝色调主题 CSS 变量配置
+                &lt;style&gt;
+                #my-menu {
+                --vmc-menu-width: 100%;
+                --vmc-menu-height: 60px;
+                --vmc-menu-z-index: 9;
+                --vmc-menu-bg: #0066CC;
+                --vmc-menu-text-color: #FFF;
+                --vmc-menu-font-size: 16px;
+                --vmc-menu-font-weight: normal;
+                --vmc-menu-icon-size: 20px;
+                --vmc-menu-hover-bg: #0080FF;
+                --vmc-menu-hover-text-color: #FFD700;
+                --vmc-menu-active-bg: #004C99;
+                --vmc-menu-active-text-color: #FFD700;
+                --vmc-menu-children-height: 45px;
+                --vmc-menu-children-bg: #FFD700;
+                --vmc-menu-children-text-color: #003366;
+                --vmc-menu-children-font-size: 14px;
+                --vmc-menu-children-font-weight: normal;
+                --vmc-menu-children-icon-size: 14px;
+                --vmc-menu-children-hover-bg: #0066CC;
+                --vmc-menu-children-hover-text-color: #FFFFFF;
+                --vmc-menu-children-active-bg: #FFA500;
+                --vmc-menu-children-active-text-color: #0066CC;
+                --vmc-menu-current-bar-color: #FFD700;
+                --vmc-menu-current-bar-height: 5px;
+                }
+                &lt;/style&gt;
+
+                // 初始化菜单
+                const menu = window.VmcMenu('#my-menu', {
+                duration: 400,
+                currentBar: true
+                });</code>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -1200,6 +1546,18 @@
 
         // 响应式演示
         const menu7 = window.VmcMenu('#demo-menu-7', {
+            duration: 400,
+            currentBar: true,
+        });
+
+        // CSS变量自定义样式演示 - 红色调
+        const menu8a = window.VmcMenu('#demo-menu-8a', {
+            duration: 400,
+            currentBar: true,
+        });
+
+        // CSS变量自定义样式演示 - 蓝色调
+        const menu8b = window.VmcMenu('#demo-menu-8b', {
             duration: 400,
             currentBar: true,
         });
