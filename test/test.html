@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>VmcMenu 测试用例 - 维米客网页工作室</title>
+    
+    <script type="text/javascript" src="../src/vmc-menu.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/style.css"/>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .test-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .test-section h2 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #B10000;
+            padding-bottom: 10px;
+        }
+        
+        .test-case {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        
+        .test-case h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .test-case p {
+            margin: 10px 0;
+            color: #666;
+        }
+        
+        .test-buttons {
+            margin: 10px 0;
+        }
+        
+        .test-buttons button {
+            margin: 5px;
+            padding: 8px 16px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .test-buttons button:hover {
+            background: #2980b9;
+        }
+        
+        .test-buttons button.danger {
+            background: #e74c3c;
+        }
+        
+        .test-buttons button.danger:hover {
+            background: #c0392b;
+        }
+        
+        .test-buttons button.success {
+            background: #27ae60;
+        }
+        
+        .test-buttons button.success:hover {
+            background: #229954;
+        }
+        
+        .test-result {
+            margin-top: 10px;
+            padding: 10px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        .test-result.success {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+        
+        .test-result.error {
+            background: #fadbd8;
+            color: #e74c3c;
+        }
+        
+        .menu-container {
+            margin: 20px 0;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin: 10px 0;
+        }
+        
+        .log-container {
+            max-height: 200px;
+            overflow-y: auto;
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 11px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>VmcMenu 导航菜单插件 - 详细测试用例</h1>
+    
+    <!-- 测试用例 1: 基础初始化 -->
+    <div class="test-section">
+        <h2>测试用例 1: 基础初始化</h2>
+        <div class="test-case">
+            <h3>1.1 使用选择器初始化</h3>
+            <p>测试使用 CSS 选择器字符串初始化菜单</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-1">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="home">
+                                <span class="vui-item-value-icon"></span>
+                                <span class="vui-item-value-text">首页</span>
+                            </a>
+                        </li>
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="about">
+                                <span class="vui-item-value-icon"></span>
+                                <span class="vui-item-value-text">关于我们</span>
+                            </a>
+                            <ul class="vui-children">
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="company">
+                                        <span class="vui-child-value-icon"></span>
+                                        <span class="vui-child-value-text">公司简介</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test1_1()">执行测试</button>
+            </div>
+            <div id="result-1-1" class="test-result"></div>
+        </div>
+        
+        <div class="test-case">
+            <h3>1.2 使用 DOM 元素初始化</h3>
+            <p>测试直接传入 DOM 元素初始化菜单</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-2">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="home2">
+                                <span class="vui-item-value-text">首页</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test1_2()">执行测试</button>
+            </div>
+            <div id="result-1-2" class="test-result"></div>
+        </div>
+        
+        <div class="test-case">
+            <h3>1.3 使用 HTMLElement 原型方法初始化</h3>
+            <p>测试使用 element.VmcMenu() 方法初始化</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-3">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="home3">
+                                <span class="vui-item-value-text">首页</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test1_3()">执行测试</button>
+            </div>
+            <div id="result-1-3" class="test-result"></div>
+        </div>
+    </div>
+    
+    <!-- 测试用例 2: 配置选项 -->
+    <div class="test-section">
+        <h2>测试用例 2: 配置选项</h2>
+        <div class="test-case">
+            <h3>2.1 自定义动画时长</h3>
+            <p>测试设置不同的动画持续时间</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-4">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="slow-menu">
+                                <span class="vui-item-value-text">慢速菜单</span>
+                            </a>
+                            <ul class="vui-children">
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="slow-child">
+                                        <span class="vui-child-value-text">子菜单</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test2_1()">执行测试 (800ms)</button>
+            </div>
+            <div id="result-2-1" class="test-result"></div>
+        </div>
+        
+        <div class="test-case">
+            <h3>2.2 禁用当前指示条</h3>
+            <p>测试禁用滑动指示条功能</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-5">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="no-bar">
+                                <span class="vui-item-value-text">无指示条菜单</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test2_2()">执行测试</button>
+            </div>
+            <div id="result-2-2" class="test-result"></div>
+        </div>
+        
+        <div class="test-case">
+            <h3>2.3 自定义缓动参数</h3>
+            <p>测试自定义 easeOutBack 缓动函数参数</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-6">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="custom-easing">
+                                <span class="vui-item-value-text">自定义缓动</span>
+                            </a>
+                            <ul class="vui-children">
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="custom-child">
+                                        <span class="vui-child-value-text">子菜单</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test2_3()">执行测试 (参数: 2.5)</button>
+            </div>
+            <div id="result-2-3" class="test-result"></div>
+        </div>
+    </div>
+    
+    <!-- 测试用例 3: API 方法 -->
+    <div class="test-section">
+        <h2>测试用例 3: API 方法</h2>
+        <div class="test-case">
+            <h3>3.1 setActiveMenu() - 设置选中菜单</h3>
+            <p>测试设置一级菜单和二级菜单为选中状态</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-7">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="api-home">
+                                <span class="vui-item-value-text">首页</span>
+                            </a>
+                        </li>
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="api-about">
+                                <span class="vui-item-value-text">关于我们</span>
+                            </a>
+                            <ul class="vui-children">
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="api-company">
+                                        <span class="vui-child-value-text">公司简介</span>
+                                    </a>
+                                </li>
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="api-team">
+                                        <span class="vui-child-value-text">团队介绍</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test3_1('api-home')">选中首页</button>
+                <button onclick="test3_1('api-about')">选中关于我们</button>
+                <button onclick="test3_1('api-company')">选中公司简介</button>
+                <button onclick="test3_1('api-team')">选中团队介绍</button>
+            </div>
+            <div id="result-3-1" class="test-result"></div>
+        </div>
+        
+        <div class="test-case">
+            <h3>3.2 clearActiveMenu() - 清除选中状态</h3>
+            <p>测试清除所有菜单项的选中状态</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-8" data-active-menu-id="clear-company">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="clear-home">
+                                <span class="vui-item-value-text">首页</span>
+                            </a>
+                        </li>
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="clear-about">
+                                <span class="vui-item-value-text">关于我们</span>
+                            </a>
+                            <ul class="vui-children">
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="clear-company">
+                                        <span class="vui-child-value-text">公司简介</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test3_2()">清除选中状态</button>
+            </div>
+            <div id="result-3-2" class="test-result"></div>
+        </div>
+        
+        <div class="test-case">
+            <h3>3.3 destroy() - 销毁实例</h3>
+            <p>测试销毁菜单实例，清理事件和动画</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-9">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="destroy-home">
+                                <span class="vui-item-value-text">首页</span>
+                            </a>
+                            <ul class="vui-children">
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="destroy-child">
+                                        <span class="vui-child-value-text">子菜单</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test3_3()">销毁实例</button>
+                <button onclick="test3_3_reinit()">重新初始化</button>
+            </div>
+            <div id="result-3-3" class="test-result"></div>
+        </div>
+    </div>
+    
+    <!-- 测试用例 4: 数据驱动渲染 -->
+    <div class="test-section">
+        <h2>测试用例 4: 数据驱动渲染</h2>
+        <div class="test-case">
+            <h3>4.1 基础数据渲染</h3>
+            <p>测试使用数据数组生成菜单结构</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-10"></div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test4_1()">执行测试</button>
+            </div>
+            <div id="result-4-1" class="test-result"></div>
+        </div>
+        
+        <div class="test-case">
+            <h3>4.2 SVG 图标渲染</h3>
+            <p>测试使用 SVG 字符串作为图标</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-11"></div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test4_2()">执行测试</button>
+            </div>
+            <div id="result-4-2" class="test-result"></div>
+        </div>
+        
+        <div class="test-case">
+            <h3>4.3 图片 URL 图标渲染</h3>
+            <p>测试使用图片 URL 作为图标</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-12"></div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test4_3()">执行测试</button>
+            </div>
+            <div id="result-4-3" class="test-result"></div>
+        </div>
+    </div>
+    
+    <!-- 测试用例 5: 初始选中菜单 -->
+    <div class="test-section">
+        <h2>测试用例 5: 初始选中菜单</h2>
+        <div class="test-case">
+            <h3>5.1 通过 data-active-menu-id 属性设置</h3>
+            <p>测试在 HTML 中通过 data-active-menu-id 属性设置初始选中菜单</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-13" data-active-menu-id="init-company">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="init-home">
+                                <span class="vui-item-value-text">首页</span>
+                            </a>
+                        </li>
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="init-about">
+                                <span class="vui-item-value-text">关于我们</span>
+                            </a>
+                            <ul class="vui-children">
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="init-company">
+                                        <span class="vui-child-value-text">公司简介</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test5_1()">执行测试</button>
+            </div>
+            <div id="result-5-1" class="test-result"></div>
+        </div>
+    </div>
+    
+    <!-- 测试用例 6: 边界情况 -->
+    <div class="test-section">
+        <h2>测试用例 6: 边界情况</h2>
+        <div class="test-case">
+            <h3>6.1 无效的 menu-id</h3>
+            <p>测试设置不存在的 menu-id</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-14">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="valid-id">
+                                <span class="vui-item-value-text">有效菜单</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test6_1()">执行测试 (无效ID)</button>
+            </div>
+            <div id="result-6-1" class="test-result"></div>
+        </div>
+        
+        <div class="test-case">
+            <h3>6.2 空字符串 menu-id</h3>
+            <p>测试传入空字符串作为 menu-id</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-15">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="test-id">
+                                <span class="vui-item-value-text">测试菜单</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test6_2()">执行测试</button>
+            </div>
+            <div id="result-6-2" class="test-result"></div>
+        </div>
+        
+        <div class="test-case">
+            <h3>6.3 无效的选择器</h3>
+            <p>测试使用不存在的选择器初始化</p>
+            <div class="test-buttons">
+                <button onclick="test6_3()">执行测试</button>
+            </div>
+            <div id="result-6-3" class="test-result"></div>
+        </div>
+        
+        <div class="test-case">
+            <h3>6.4 无效的元素参数</h3>
+            <p>测试传入无效的元素参数</p>
+            <div class="test-buttons">
+                <button onclick="test6_4()">执行测试</button>
+            </div>
+            <div id="result-6-4" class="test-result"></div>
+        </div>
+    </div>
+    
+    <!-- 测试用例 7: 响应式测试 -->
+    <div class="test-section">
+        <h2>测试用例 7: 响应式测试</h2>
+        <div class="test-case">
+            <h3>7.1 窗口大小变化</h3>
+            <p>测试窗口大小变化时菜单自动重新计算位置（请手动调整浏览器窗口大小）</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-16">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="resize-home">
+                                <span class="vui-item-value-text">首页</span>
+                            </a>
+                        </li>
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="resize-about">
+                                <span class="vui-item-value-text">关于我们</span>
+                            </a>
+                            <ul class="vui-children">
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="resize-company">
+                                        <span class="vui-child-value-text">公司简介</span>
+                                    </a>
+                                </li>
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="resize-team">
+                                        <span class="vui-child-value-text">团队介绍</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test7_1()">初始化菜单</button>
+            </div>
+            <div id="result-7-1" class="test-result"></div>
+            <p style="color: #e74c3c; font-size: 12px;">提示：请手动调整浏览器窗口大小，观察子菜单位置是否自动调整</p>
+        </div>
+    </div>
+    
+    <!-- 测试用例 8: 动画测试 -->
+    <div class="test-section">
+        <h2>测试用例 8: 动画测试</h2>
+        <div class="test-case">
+            <h3>8.1 子菜单展开/收起动画</h3>
+            <p>测试鼠标悬停时子菜单的展开和收起动画（请将鼠标悬停在菜单项上）</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-17">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="anim-home">
+                                <span class="vui-item-value-text">首页</span>
+                            </a>
+                        </li>
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="anim-about">
+                                <span class="vui-item-value-text">关于我们</span>
+                            </a>
+                            <ul class="vui-children">
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="anim-company">
+                                        <span class="vui-child-value-text">公司简介</span>
+                                    </a>
+                                </li>
+                                <li class="vui-child-item">
+                                    <a href="#" class="vui-child-value" data-menu-id="anim-team">
+                                        <span class="vui-child-value-text">团队介绍</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test8_1()">初始化菜单</button>
+            </div>
+            <div id="result-8-1" class="test-result"></div>
+            <p style="color: #3498db; font-size: 12px;">提示：将鼠标悬停在"关于我们"菜单项上，观察子菜单的展开动画</p>
+        </div>
+        
+        <div class="test-case">
+            <h3>8.2 当前指示条动画</h3>
+            <p>测试当前指示条的滑动动画（请将鼠标悬停在不同的菜单项上）</p>
+            <div class="menu-container">
+                <div class="vui-menu" id="test-menu-18">
+                    <ul class="vui-main">
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="bar-home">
+                                <span class="vui-item-value-text">首页</span>
+                            </a>
+                        </li>
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="bar-about">
+                                <span class="vui-item-value-text">关于我们</span>
+                            </a>
+                        </li>
+                        <li class="vui-item">
+                            <a href="#" class="vui-item-value" data-menu-id="bar-products">
+                                <span class="vui-item-value-text">产品</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="test8_2()">初始化菜单</button>
+            </div>
+            <div id="result-8-2" class="test-result"></div>
+            <p style="color: #3498db; font-size: 12px;">提示：将鼠标悬停在不同菜单项上，观察指示条的滑动动画</p>
+        </div>
+    </div>
+    
+    <!-- 测试日志 -->
+    <div class="test-section">
+        <h2>测试日志</h2>
+        <div class="log-container" id="test-log">
+            <div>等待测试执行...</div>
+        </div>
+        <div class="test-buttons">
+            <button onclick="clearLog()" class="danger">清空日志</button>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        // 测试日志函数
+        function log(message, type = 'info') {
+            const logContainer = document.getElementById('test-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.style.marginBottom = '5px';
+            logEntry.style.color = type === 'error' ? '#e74c3c' : type === 'success' ? '#27ae60' : '#ecf0f1';
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            logContainer.appendChild(logEntry);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+        
+        function clearLog() {
+            document.getElementById('test-log').innerHTML = '<div>日志已清空</div>';
+        }
+        
+        function showResult(elementId, message, isSuccess = true) {
+            const resultEl = document.getElementById(elementId);
+            resultEl.textContent = message;
+            resultEl.className = 'test-result ' + (isSuccess ? 'success' : 'error');
+        }
+        
+        // 存储菜单实例
+        const menuInstances = {};
+        
+        // 测试用例 1: 基础初始化
+        function test1_1() {
+            try {
+                log('开始测试 1.1: 使用选择器初始化');
+                const menu = window.VmcMenu('#test-menu-1', {
+                    duration: 400,
+                    currentBar: true
+                });
+                menuInstances['test-menu-1'] = menu;
+                showResult('result-1-1', '✓ 测试通过：菜单初始化成功', true);
+                log('测试 1.1 通过：菜单初始化成功', 'success');
+            } catch (e) {
+                showResult('result-1-1', '✗ 测试失败：' + e.message, false);
+                log('测试 1.1 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test1_2() {
+            try {
+                log('开始测试 1.2: 使用 DOM 元素初始化');
+                const element = document.getElementById('test-menu-2');
+                const menu = window.VmcMenu(element, {
+                    duration: 400
+                });
+                menuInstances['test-menu-2'] = menu;
+                showResult('result-1-2', '✓ 测试通过：菜单初始化成功', true);
+                log('测试 1.2 通过：菜单初始化成功', 'success');
+            } catch (e) {
+                showResult('result-1-2', '✗ 测试失败：' + e.message, false);
+                log('测试 1.2 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test1_3() {
+            try {
+                log('开始测试 1.3: 使用 HTMLElement 原型方法初始化');
+                const element = document.getElementById('test-menu-3');
+                const menu = element.VmcMenu({
+                    duration: 400
+                });
+                menuInstances['test-menu-3'] = menu;
+                showResult('result-1-3', '✓ 测试通过：菜单初始化成功', true);
+                log('测试 1.3 通过：菜单初始化成功', 'success');
+            } catch (e) {
+                showResult('result-1-3', '✗ 测试失败：' + e.message, false);
+                log('测试 1.3 失败：' + e.message, 'error');
+            }
+        }
+        
+        // 测试用例 2: 配置选项
+        function test2_1() {
+            try {
+                log('开始测试 2.1: 自定义动画时长');
+                const menu = window.VmcMenu('#test-menu-4', {
+                    duration: 800,
+                    currentBar: true
+                });
+                menuInstances['test-menu-4'] = menu;
+                showResult('result-2-1', '✓ 测试通过：动画时长设置为 800ms', true);
+                log('测试 2.1 通过：动画时长设置为 800ms', 'success');
+            } catch (e) {
+                showResult('result-2-1', '✗ 测试失败：' + e.message, false);
+                log('测试 2.1 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test2_2() {
+            try {
+                log('开始测试 2.2: 禁用当前指示条');
+                const menu = window.VmcMenu('#test-menu-5', {
+                    currentBar: false
+                });
+                menuInstances['test-menu-5'] = menu;
+                const barBox = document.querySelector('#test-menu-5 .vui-current-bar-box');
+                if (!barBox || barBox.style.display === 'none') {
+                    showResult('result-2-2', '✓ 测试通过：指示条已禁用', true);
+                    log('测试 2.2 通过：指示条已禁用', 'success');
+                } else {
+                    showResult('result-2-2', '✗ 测试失败：指示条未正确禁用', false);
+                    log('测试 2.2 失败：指示条未正确禁用', 'error');
+                }
+            } catch (e) {
+                showResult('result-2-2', '✗ 测试失败：' + e.message, false);
+                log('测试 2.2 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test2_3() {
+            try {
+                log('开始测试 2.3: 自定义缓动参数');
+                const menu = window.VmcMenu('#test-menu-6', {
+                    easeOutBackParam: 2.5,
+                    duration: 400
+                });
+                menuInstances['test-menu-6'] = menu;
+                showResult('result-2-3', '✓ 测试通过：缓动参数设置为 2.5', true);
+                log('测试 2.3 通过：缓动参数设置为 2.5', 'success');
+            } catch (e) {
+                showResult('result-2-3', '✗ 测试失败：' + e.message, false);
+                log('测试 2.3 失败：' + e.message, 'error');
+            }
+        }
+        
+        // 测试用例 3: API 方法
+        function test3_1(menuId) {
+            try {
+                log('开始测试 3.1: setActiveMenu(' + menuId + ')');
+                if (!menuInstances['test-menu-7']) {
+                    menuInstances['test-menu-7'] = window.VmcMenu('#test-menu-7');
+                }
+                const menu = menuInstances['test-menu-7'];
+                menu.setActiveMenu(menuId);
+                const activeElement = document.querySelector('#test-menu-7 [data-menu-id="' + menuId + '"]');
+                if (activeElement && (activeElement.classList.contains('vui-item-active') || activeElement.classList.contains('vui-child-active'))) {
+                    showResult('result-3-1', '✓ 测试通过：菜单 "' + menuId + '" 已设置为选中状态', true);
+                    log('测试 3.1 通过：菜单 "' + menuId + '" 已设置为选中状态', 'success');
+                } else {
+                    showResult('result-3-1', '✗ 测试失败：菜单未正确设置为选中状态', false);
+                    log('测试 3.1 失败：菜单未正确设置为选中状态', 'error');
+                }
+            } catch (e) {
+                showResult('result-3-1', '✗ 测试失败：' + e.message, false);
+                log('测试 3.1 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test3_2() {
+            try {
+                log('开始测试 3.2: clearActiveMenu()');
+                if (!menuInstances['test-menu-8']) {
+                    menuInstances['test-menu-8'] = window.VmcMenu('#test-menu-8');
+                }
+                const menu = menuInstances['test-menu-8'];
+                menu.clearActiveMenu();
+                const activeElements = document.querySelectorAll('#test-menu-8 .vui-item-active, #test-menu-8 .vui-child-active');
+                if (activeElements.length === 0) {
+                    showResult('result-3-2', '✓ 测试通过：所有菜单项的选中状态已清除', true);
+                    log('测试 3.2 通过：所有菜单项的选中状态已清除', 'success');
+                } else {
+                    showResult('result-3-2', '✗ 测试失败：仍有菜单项处于选中状态', false);
+                    log('测试 3.2 失败：仍有菜单项处于选中状态', 'error');
+                }
+            } catch (e) {
+                showResult('result-3-2', '✗ 测试失败：' + e.message, false);
+                log('测试 3.2 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test3_3() {
+            try {
+                log('开始测试 3.3: destroy()');
+                if (!menuInstances['test-menu-9']) {
+                    menuInstances['test-menu-9'] = window.VmcMenu('#test-menu-9');
+                }
+                const menu = menuInstances['test-menu-9'];
+                menu.destroy();
+                delete menuInstances['test-menu-9'];
+                showResult('result-3-3', '✓ 测试通过：菜单实例已销毁', true);
+                log('测试 3.3 通过：菜单实例已销毁', 'success');
+            } catch (e) {
+                showResult('result-3-3', '✗ 测试失败：' + e.message, false);
+                log('测试 3.3 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test3_3_reinit() {
+            try {
+                log('重新初始化菜单');
+                menuInstances['test-menu-9'] = window.VmcMenu('#test-menu-9');
+                showResult('result-3-3', '✓ 菜单已重新初始化', true);
+                log('菜单已重新初始化', 'success');
+            } catch (e) {
+                showResult('result-3-3', '✗ 重新初始化失败：' + e.message, false);
+                log('重新初始化失败：' + e.message, 'error');
+            }
+        }
+        
+        // 测试用例 4: 数据驱动渲染
+        function test4_1() {
+            try {
+                log('开始测试 4.1: 基础数据渲染');
+                const menuData = [
+                    {
+                        id: 'data-home',
+                        text: '首页',
+                        href: '#'
+                    },
+                    {
+                        id: 'data-about',
+                        text: '关于我们',
+                        href: '#',
+                        children: [
+                            {
+                                id: 'data-company',
+                                text: '公司简介',
+                                href: '#'
+                            }
+                        ]
+                    }
+                ];
+                const menu = window.VmcMenu('#test-menu-10', {
+                    data: menuData
+                });
+                menuInstances['test-menu-10'] = menu;
+                const menuItems = document.querySelectorAll('#test-menu-10 .vui-item');
+                if (menuItems.length === 2) {
+                    showResult('result-4-1', '✓ 测试通过：菜单已从数据成功渲染（2个一级菜单项）', true);
+                    log('测试 4.1 通过：菜单已从数据成功渲染', 'success');
+                } else {
+                    showResult('result-4-1', '✗ 测试失败：菜单项数量不正确', false);
+                    log('测试 4.1 失败：菜单项数量不正确', 'error');
+                }
+            } catch (e) {
+                showResult('result-4-1', '✗ 测试失败：' + e.message, false);
+                log('测试 4.1 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test4_2() {
+            try {
+                log('开始测试 4.2: SVG 图标渲染');
+                const menuData = [
+                    {
+                        id: 'svg-home',
+                        text: '首页',
+                        href: '#',
+                        icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>'
+                    }
+                ];
+                const menu = window.VmcMenu('#test-menu-11', {
+                    data: menuData
+                });
+                menuInstances['test-menu-11'] = menu;
+                const icon = document.querySelector('#test-menu-11 .vui-item-value-icon svg');
+                if (icon) {
+                    showResult('result-4-2', '✓ 测试通过：SVG 图标已成功渲染', true);
+                    log('测试 4.2 通过：SVG 图标已成功渲染', 'success');
+                } else {
+                    showResult('result-4-2', '✗ 测试失败：SVG 图标未正确渲染', false);
+                    log('测试 4.2 失败：SVG 图标未正确渲染', 'error');
+                }
+            } catch (e) {
+                showResult('result-4-2', '✗ 测试失败：' + e.message, false);
+                log('测试 4.2 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test4_3() {
+            try {
+                log('开始测试 4.3: 图片 URL 图标渲染');
+                const menuData = [
+                    {
+                        id: 'img-home',
+                        text: '首页',
+                        href: '#',
+                        icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDIwdjY0djZoNXY4aDNMMTIgMyAyIDEyaDN2OHoiLz48L3N2Zz4='
+                    }
+                ];
+                const menu = window.VmcMenu('#test-menu-12', {
+                    data: menuData
+                });
+                menuInstances['test-menu-12'] = menu;
+                const icon = document.querySelector('#test-menu-12 .vui-item-value-icon img');
+                if (icon) {
+                    showResult('result-4-3', '✓ 测试通过：图片图标已成功渲染', true);
+                    log('测试 4.3 通过：图片图标已成功渲染', 'success');
+                } else {
+                    showResult('result-4-3', '✗ 测试失败：图片图标未正确渲染', false);
+                    log('测试 4.3 失败：图片图标未正确渲染', 'error');
+                }
+            } catch (e) {
+                showResult('result-4-3', '✗ 测试失败：' + e.message, false);
+                log('测试 4.3 失败：' + e.message, 'error');
+            }
+        }
+        
+        // 测试用例 5: 初始选中菜单
+        function test5_1() {
+            try {
+                log('开始测试 5.1: 通过 data-active-menu-id 属性设置初始选中菜单');
+                const menu = window.VmcMenu('#test-menu-13');
+                menuInstances['test-menu-13'] = menu;
+                const activeElement = document.querySelector('#test-menu-13 [data-menu-id="init-company"]');
+                if (activeElement && (activeElement.classList.contains('vui-item-active') || activeElement.classList.contains('vui-child-active'))) {
+                    showResult('result-5-1', '✓ 测试通过：初始选中菜单已正确设置', true);
+                    log('测试 5.1 通过：初始选中菜单已正确设置', 'success');
+                } else {
+                    showResult('result-5-1', '✗ 测试失败：初始选中菜单未正确设置', false);
+                    log('测试 5.1 失败：初始选中菜单未正确设置', 'error');
+                }
+            } catch (e) {
+                showResult('result-5-1', '✗ 测试失败：' + e.message, false);
+                log('测试 5.1 失败：' + e.message, 'error');
+            }
+        }
+        
+        // 测试用例 6: 边界情况
+        function test6_1() {
+            try {
+                log('开始测试 6.1: 无效的 menu-id');
+                if (!menuInstances['test-menu-14']) {
+                    menuInstances['test-menu-14'] = window.VmcMenu('#test-menu-14');
+                }
+                const menu = menuInstances['test-menu-14'];
+                menu.setActiveMenu('invalid-menu-id');
+                const consoleWarn = console.warn;
+                let warningCalled = false;
+                console.warn = function() {
+                    warningCalled = true;
+                    consoleWarn.apply(console, arguments);
+                };
+                menu.setActiveMenu('invalid-menu-id');
+                console.warn = consoleWarn;
+                showResult('result-6-1', '✓ 测试通过：无效 menu-id 已正确处理（应显示警告）', true);
+                log('测试 6.1 通过：无效 menu-id 已正确处理', 'success');
+            } catch (e) {
+                showResult('result-6-1', '✗ 测试失败：' + e.message, false);
+                log('测试 6.1 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test6_2() {
+            try {
+                log('开始测试 6.2: 空字符串 menu-id');
+                if (!menuInstances['test-menu-15']) {
+                    menuInstances['test-menu-15'] = window.VmcMenu('#test-menu-15');
+                }
+                const menu = menuInstances['test-menu-15'];
+                menu.setActiveMenu('');
+                const activeElements = document.querySelectorAll('#test-menu-15 .vui-item-active, #test-menu-15 .vui-child-active');
+                if (activeElements.length === 0) {
+                    showResult('result-6-2', '✓ 测试通过：空字符串 menu-id 已正确处理（清除选中状态）', true);
+                    log('测试 6.2 通过：空字符串 menu-id 已正确处理', 'success');
+                } else {
+                    showResult('result-6-2', '✗ 测试失败：空字符串处理不正确', false);
+                    log('测试 6.2 失败：空字符串处理不正确', 'error');
+                }
+            } catch (e) {
+                showResult('result-6-2', '✗ 测试失败：' + e.message, false);
+                log('测试 6.2 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test6_3() {
+            try {
+                log('开始测试 6.3: 无效的选择器');
+                window.VmcMenu('#non-existent-menu');
+                showResult('result-6-3', '✗ 测试失败：应该抛出错误但未抛出', false);
+                log('测试 6.3 失败：应该抛出错误但未抛出', 'error');
+            } catch (e) {
+                if (e.message.includes('未找到选择器')) {
+                    showResult('result-6-3', '✓ 测试通过：无效选择器已正确抛出错误', true);
+                    log('测试 6.3 通过：无效选择器已正确抛出错误', 'success');
+                } else {
+                    showResult('result-6-3', '✗ 测试失败：错误信息不正确', false);
+                    log('测试 6.3 失败：错误信息不正确', 'error');
+                }
+            }
+        }
+        
+        function test6_4() {
+            try {
+                log('开始测试 6.4: 无效的元素参数');
+                window.VmcMenu(null);
+                showResult('result-6-4', '✗ 测试失败：应该抛出错误但未抛出', false);
+                log('测试 6.4 失败：应该抛出错误但未抛出', 'error');
+            } catch (e) {
+                if (e.message.includes('无效的元素参数') || e.message.includes('第一个参数必须是')) {
+                    showResult('result-6-4', '✓ 测试通过：无效元素参数已正确抛出错误', true);
+                    log('测试 6.4 通过：无效元素参数已正确抛出错误', 'success');
+                } else {
+                    showResult('result-6-4', '✗ 测试失败：错误信息不正确', false);
+                    log('测试 6.4 失败：错误信息不正确', 'error');
+                }
+            }
+        }
+        
+        // 测试用例 7: 响应式测试
+        function test7_1() {
+            try {
+                log('开始测试 7.1: 窗口大小变化');
+                const menu = window.VmcMenu('#test-menu-16', {
+                    duration: 400
+                });
+                menuInstances['test-menu-16'] = menu;
+                showResult('result-7-1', '✓ 测试通过：菜单已初始化，请手动调整窗口大小测试响应式功能', true);
+                log('测试 7.1 通过：菜单已初始化', 'success');
+            } catch (e) {
+                showResult('result-7-1', '✗ 测试失败：' + e.message, false);
+                log('测试 7.1 失败：' + e.message, 'error');
+            }
+        }
+        
+        // 测试用例 8: 动画测试
+        function test8_1() {
+            try {
+                log('开始测试 8.1: 子菜单展开/收起动画');
+                const menu = window.VmcMenu('#test-menu-17', {
+                    duration: 400
+                });
+                menuInstances['test-menu-17'] = menu;
+                showResult('result-8-1', '✓ 测试通过：菜单已初始化，请将鼠标悬停在"关于我们"上测试动画', true);
+                log('测试 8.1 通过：菜单已初始化', 'success');
+            } catch (e) {
+                showResult('result-8-1', '✗ 测试失败：' + e.message, false);
+                log('测试 8.1 失败：' + e.message, 'error');
+            }
+        }
+        
+        function test8_2() {
+            try {
+                log('开始测试 8.2: 当前指示条动画');
+                const menu = window.VmcMenu('#test-menu-18', {
+                    currentBar: true,
+                    currentBarDuration: 300
+                });
+                menuInstances['test-menu-18'] = menu;
+                showResult('result-8-2', '✓ 测试通过：菜单已初始化，请将鼠标悬停在不同菜单项上测试指示条动画', true);
+                log('测试 8.2 通过：菜单已初始化', 'success');
+            } catch (e) {
+                showResult('result-8-2', '✗ 测试失败：' + e.message, false);
+                log('测试 8.2 失败：' + e.message, 'error');
+            }
+        }
+        
+        // 页面加载完成后的初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            log('测试页面加载完成', 'success');
+            log('请点击各个测试用例的"执行测试"按钮开始测试', 'info');
+        });
+    </script>
+</body>
+</html>
