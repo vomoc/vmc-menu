@@ -88,8 +88,11 @@
             margin: 15px 0;
         }
 
-        .code-block code {
+        .code-block pre {
             color: #f8f8f2;
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
 
         .note {
@@ -312,35 +315,35 @@
         </div>
 
         <div class="code-block">
-            <code>&lt;div class="vui-menu" id="demo-menu-1"&gt;
-                &lt;ul class="vui-main"&gt;
-                &lt;li class="vui-item"&gt;
-                &lt;a href="#" class="vui-item-value" data-menu-id="home"&gt;
+            <pre>&lt;div class="vui-menu" id="demo-menu-1"&gt;
+    &lt;ul class="vui-main"&gt;
+        &lt;li class="vui-item"&gt;
+            &lt;a href="#" class="vui-item-value" data-menu-id="home"&gt;
                 &lt;span class="vui-item-value-icon"&gt;...&lt;/span&gt;
                 &lt;span class="vui-item-value-text"&gt;首页&lt;/span&gt;
-                &lt;/a&gt;
-                &lt;/li&gt;
-                &lt;li class="vui-item"&gt;
-                &lt;a href="#" class="vui-item-value" data-menu-id="about"&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="vui-item"&gt;
+            &lt;a href="#" class="vui-item-value" data-menu-id="about"&gt;
                 &lt;span class="vui-item-value-text"&gt;关于我们&lt;/span&gt;
-                &lt;/a&gt;
-                &lt;ul class="vui-children"&gt;
+            &lt;/a&gt;
+            &lt;ul class="vui-children"&gt;
                 &lt;li class="vui-child-item"&gt;
-                &lt;a href="#" class="vui-child-value" data-menu-id="company"&gt;
-                &lt;span class="vui-child-value-text"&gt;公司简介&lt;/span&gt;
-                &lt;/a&gt;
+                    &lt;a href="#" class="vui-child-value" data-menu-id="company"&gt;
+                        &lt;span class="vui-child-value-text"&gt;公司简介&lt;/span&gt;
+                    &lt;/a&gt;
                 &lt;/li&gt;
-                &lt;/ul&gt;
-                &lt;/li&gt;
-                &lt;/ul&gt;
-                &lt;/div&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
 
-                &lt;script&gt;
-                const menu = window.VmcMenu('#demo-menu-1', {
-                duration: 400,
-                currentBar: true
-                });
-                &lt;/script&gt;</code>
+&lt;script&gt;
+const menu = window.VmcMenu('#demo-menu-1', {
+duration: 400,
+currentBar: true
+});
+&lt;/script&gt;</pre>
         </div>
     </div>
 
@@ -479,30 +482,30 @@
         </div>
 
         <div class="code-block">
-            <code>// 默认配置
-                const menu1 = window.VmcMenu('#menu', {
-                duration: 400,
-                currentBar: true
-                });
+            <pre>// 默认配置
+const menu1 = window.VmcMenu('#menu', {
+    duration: 400,
+    currentBar: true
+});
 
-                // 慢速动画
-                const menu2 = window.VmcMenu('#menu', {
-                duration: 800,
-                currentBar: true
-                });
+// 慢速动画
+const menu2 = window.VmcMenu('#menu', {
+    duration: 800,
+    currentBar: true
+});
 
-                // 禁用指示条
-                const menu3 = window.VmcMenu('#menu', {
-                duration: 400,
-                currentBar: false
-                });
+// 禁用指示条
+const menu3 = window.VmcMenu('#menu', {
+    duration: 400,
+    currentBar: false
+});
 
-                // 自定义缓动参数
-                const menu4 = window.VmcMenu('#menu', {
-                duration: 400,
-                currentBar: true,
-                easeOutBackParam: 2.5
-                });</code>
+// 自定义缓动参数
+const menu4 = window.VmcMenu('#menu', {
+    duration: 400,
+    currentBar: true,
+    easeOutBackParam: 2.5
+});</pre>
         </div>
     </div>
 
@@ -520,51 +523,51 @@
         </div>
 
         <div class="code-block">
-            <code>const menuData = [
-                {
-                id: 'home',
-                text: '首页',
-                href: '/',
-                icon: '&lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;'
-                },
-                {
-                id: 'about',
-                text: '关于我们',
-                href: '#',
-                icon: '&lt;svg&gt;...&lt;/svg&gt;',
-                children: [
-                {
+            <pre>const menuData = [
+    {
+        id: 'home',
+        text: '首页',
+        href: '/',
+        icon: '&lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;'
+    },
+    {
+        id: 'about',
+        text: '关于我们',
+        href: '#',
+        icon: '&lt;svg&gt;...&lt;/svg&gt;',
+        children: [
+            {
                 id: 'company',
                 text: '公司简介',
                 href: '/about/company'
-                },
-                {
+            },
+            {
                 id: 'team',
                 text: '团队介绍',
                 href: '/about/team'
-                }
-                ]
-                },
-                {
-                id: 'products',
-                text: '产品',
-                href: '#',
-                icon: 'https://example.com/icon.png', // 图片URL
-                children: [
-                {
+            }
+        ]
+    },
+    {
+        id: 'products',
+        text: '产品',
+        href: '#',
+        icon: 'https://example.com/icon.png', // 图片URL
+        children: [
+            {
                 id: 'product1',
                 text: '产品一',
                 href: '/products/1'
-                }
-                ]
-                }
-                ];
+            }
+        ]
+    }
+];
 
-                const menu = window.VmcMenu('#demo-menu-3', {
-                data: menuData,
-                duration: 400,
-                currentBar: true
-                });</code>
+const menu = window.VmcMenu('#demo-menu-3', {
+    data: menuData,
+    duration: 400,
+    currentBar: true
+});</pre>
         </div>
     </div>
 
@@ -627,30 +630,30 @@
         </div>
 
         <div class="code-block">
-            <code>// SVG 图标（在 HTML 中）
-                &lt;span class="vui-item-value-icon"&gt;
-                &lt;svg viewBox="0 0 24 24"&gt;
-                &lt;path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/&gt;
-                &lt;/svg&gt;
-                &lt;/span&gt;
+            <pre>// SVG 图标（在 HTML 中）
+&lt;span class="vui-item-value-icon"&gt;
+    &lt;svg viewBox="0 0 24 24"&gt;
+        &lt;path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/&gt;
+    &lt;/svg&gt;
+&lt;/span&gt;
 
-                // SVG 图标（在数据中）
-                const menuData = [
-                {
-                id: 'home',
-                text: '首页',
-                icon: '&lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;'
-                }
-                ];
+// SVG 图标（在数据中）
+const menuData = [
+    {
+        id: 'home',
+        text: '首页',
+        icon: '&lt;svg viewBox="0 0 24 24"&gt;...&lt;/svg&gt;'
+    }
+];
 
-                // 图片 URL 图标（在数据中）
-                const menuData = [
-                {
-                id: 'home',
-                text: '首页',
-                icon: 'https://example.com/icon.png'
-                }
-                ];</code>
+// 图片 URL 图标（在数据中）
+const menuData = [
+{
+    id: 'home',
+    text: '首页',
+    icon: 'https://example.com/icon.png'
+}
+];</pre>
         </div>
     </div>
 
@@ -748,23 +751,23 @@
         </div>
 
         <div class="code-block">
-            <code>// 获取菜单实例
-                const menu = window.VmcMenu('#demo-menu-5', {
-                duration: 400,
-                currentBar: true
-                });
+            <pre>// 获取菜单实例
+const menu = window.VmcMenu('#demo-menu-5', {
+    duration: 400,
+    currentBar: true
+});
 
-                // 设置选中菜单（一级菜单）
-                menu.setActiveMenu('api-home');
+// 设置选中菜单（一级菜单）
+menu.setActiveMenu('api-home');
 
-                // 设置选中菜单（二级菜单）
-                menu.setActiveMenu('api-company');
+// 设置选中菜单（二级菜单）
+menu.setActiveMenu('api-company');
 
-                // 清除所有选中状态
-                menu.clearActiveMenu();
+// 清除所有选中状态
+menu.clearActiveMenu();
 
-                // 销毁菜单实例
-                menu.destroy();</code>
+// 销毁菜单实例
+menu.destroy();</pre>
         </div>
     </div>
 
@@ -847,32 +850,28 @@
         </div>
 
         <div class="code-block">
-            <code>// 在 HTML 中设置初始选中菜单
-                &lt;div class="vui-menu" data-active-menu-id="init-team"&gt;
-                &lt;ul class="vui-main"&gt;
-                &lt;li class="vui-item"&gt;
-                &lt;a href="#" class="vui-item-value" data-menu-id="init-about"&gt;
-                关于我们
-                &lt;/a&gt;
-                &lt;ul class="vui-children"&gt;
+            <pre>// 在 HTML 中设置初始选中菜单
+&lt;div class="vui-menu" data-active-menu-id="init-team"&gt;
+    &lt;ul class="vui-main"&gt;
+        &lt;li class="vui-item"&gt;
+            &lt;a href="#" class="vui-item-value" data-menu-id="init-about"&gt;关于我们&lt;/a&gt;
+            &lt;ul class="vui-children"&gt;
                 &lt;li class="vui-child-item"&gt;
-                &lt;a href="#" class="vui-child-value" data-menu-id="init-team"&gt;
-                团队介绍
-                &lt;/a&gt;
+                    &lt;a href="#" class="vui-child-value" data-menu-id="init-team"&gt;团队介绍&lt;/a&gt;
                 &lt;/li&gt;
-                &lt;/ul&gt;
-                &lt;/li&gt;
-                &lt;/ul&gt;
-                &lt;/div&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
 
-                // 初始化菜单（会自动读取 data-active-menu-id 属性）
-                const menu = window.VmcMenu('#demo-menu-6', {
-                duration: 400,
-                currentBar: true
-                });
+// 初始化菜单（会自动读取 data-active-menu-id 属性）
+const menu = window.VmcMenu('#demo-menu-6', {
+    duration: 400,
+    currentBar: true
+});
 
-                // 或者通过 API 方法设置
-                menu.setActiveMenu('init-team');</code>
+// 或者通过 API 方法设置
+menu.setActiveMenu('init-team');</pre>
         </div>
     </div>
 
@@ -1017,18 +1016,18 @@
         </div>
 
         <div class="code-block">
-            <code>// 响应式处理是自动的，无需额外配置
-                const menu = window.VmcMenu('#demo-menu-7', {
-                duration: 400,
-                currentBar: true
-                });
+            <pre>// 响应式处理是自动的，无需额外配置
+const menu = window.VmcMenu('#demo-menu-7', {
+    duration: 400,
+    currentBar: true
+});
 
-                // 当窗口大小改变时，菜单会自动：
-                // 1. 重新计算每个菜单项的位置和尺寸
-                // 2. 调整子菜单的位置，确保不超出屏幕边界
-                // 3. 如果子菜单会超出右边界，会自动向左调整位置
+// 当窗口大小改变时，菜单会自动：
+// 1. 重新计算每个菜单项的位置和尺寸
+// 2. 调整子菜单的位置，确保不超出屏幕边界
+// 3. 如果子菜单会超出右边界，会自动向左调整位置
 
-                // 所有这些都是自动完成的，无需手动调用任何方法</code>
+// 所有这些都是自动完成的，无需手动调用任何方法</pre>
         </div>
     </div>
 
@@ -1310,71 +1309,71 @@
         </div>
 
         <div class="code-block">
-            <code>// 红色调主题 CSS 变量配置
-                &lt;style&gt;
-                #my-menu {
-                --vmc-menu-width: 100%;
-                --vmc-menu-height: 60px;
-                --vmc-menu-z-index: 9;
-                --vmc-menu-bg: #B10000;
-                --vmc-menu-text-color: #FFF;
-                --vmc-menu-font-size: 16px;
-                --vmc-menu-font-weight: normal;
-                --vmc-menu-icon-size: 20px;
-                --vmc-menu-hover-bg: #D10000;
-                --vmc-menu-hover-text-color: #FFD700;
-                --vmc-menu-active-bg: #7e0202;
-                --vmc-menu-active-text-color: #FFD700;
-                --vmc-menu-children-height: 45px;
-                --vmc-menu-children-bg: #FFD700;
-                --vmc-menu-children-text-color: #390303;
-                --vmc-menu-children-font-size: 14px;
-                --vmc-menu-children-font-weight: normal;
-                --vmc-menu-children-icon-size: 14px;
-                --vmc-menu-children-hover-bg: #B10000;
-                --vmc-menu-children-hover-text-color: #FFFFFF;
-                --vmc-menu-children-active-bg: #ec9c0a;
-                --vmc-menu-children-active-text-color: #B10000;
-                --vmc-menu-current-bar-color: #FFD700;
-                --vmc-menu-current-bar-height: 5px;
-                }
-                &lt;/style&gt;
+            <pre>// 红色调主题 CSS 变量配置
+&lt;style&gt;
+    #my-menu {
+        --vmc-menu-width: 100%;
+        --vmc-menu-height: 60px;
+        --vmc-menu-z-index: 9;
+        --vmc-menu-bg: #B10000;
+        --vmc-menu-text-color: #FFF;
+        --vmc-menu-font-size: 16px;
+        --vmc-menu-font-weight: normal;
+        --vmc-menu-icon-size: 20px;
+        --vmc-menu-hover-bg: #D10000;
+        --vmc-menu-hover-text-color: #FFD700;
+        --vmc-menu-active-bg: #7e0202;
+        --vmc-menu-active-text-color: #FFD700;
+        --vmc-menu-children-height: 45px;
+        --vmc-menu-children-bg: #FFD700;
+        --vmc-menu-children-text-color: #390303;
+        --vmc-menu-children-font-size: 14px;
+        --vmc-menu-children-font-weight: normal;
+        --vmc-menu-children-icon-size: 14px;
+        --vmc-menu-children-hover-bg: #B10000;
+        --vmc-menu-children-hover-text-color: #FFFFFF;
+        --vmc-menu-children-active-bg: #ec9c0a;
+        --vmc-menu-children-active-text-color: #B10000;
+        --vmc-menu-current-bar-color: #FFD700;
+        --vmc-menu-current-bar-height: 5px;
+    }
+&lt;/style&gt;
 
-                // 蓝色调主题 CSS 变量配置
-                &lt;style&gt;
-                #my-menu {
-                --vmc-menu-width: 100%;
-                --vmc-menu-height: 60px;
-                --vmc-menu-z-index: 9;
-                --vmc-menu-bg: #0066CC;
-                --vmc-menu-text-color: #FFF;
-                --vmc-menu-font-size: 16px;
-                --vmc-menu-font-weight: normal;
-                --vmc-menu-icon-size: 20px;
-                --vmc-menu-hover-bg: #0080FF;
-                --vmc-menu-hover-text-color: #FFD700;
-                --vmc-menu-active-bg: #004C99;
-                --vmc-menu-active-text-color: #FFD700;
-                --vmc-menu-children-height: 45px;
-                --vmc-menu-children-bg: #FFD700;
-                --vmc-menu-children-text-color: #003366;
-                --vmc-menu-children-font-size: 14px;
-                --vmc-menu-children-font-weight: normal;
-                --vmc-menu-children-icon-size: 14px;
-                --vmc-menu-children-hover-bg: #0066CC;
-                --vmc-menu-children-hover-text-color: #FFFFFF;
-                --vmc-menu-children-active-bg: #FFA500;
-                --vmc-menu-children-active-text-color: #0066CC;
-                --vmc-menu-current-bar-color: #FFD700;
-                --vmc-menu-current-bar-height: 5px;
-                }
-                &lt;/style&gt;
+// 蓝色调主题 CSS 变量配置
+&lt;style&gt;
+    #my-menu {
+        --vmc-menu-width: 100%;
+        --vmc-menu-height: 60px;
+        --vmc-menu-z-index: 9;
+        --vmc-menu-bg: #0066CC;
+        --vmc-menu-text-color: #FFF;
+        --vmc-menu-font-size: 16px;
+        --vmc-menu-font-weight: normal;
+        --vmc-menu-icon-size: 20px;
+        --vmc-menu-hover-bg: #0080FF;
+        --vmc-menu-hover-text-color: #FFD700;
+        --vmc-menu-active-bg: #004C99;
+        --vmc-menu-active-text-color: #FFD700;
+        --vmc-menu-children-height: 45px;
+        --vmc-menu-children-bg: #FFD700;
+        --vmc-menu-children-text-color: #003366;
+        --vmc-menu-children-font-size: 14px;
+        --vmc-menu-children-font-weight: normal;
+        --vmc-menu-children-icon-size: 14px;
+        --vmc-menu-children-hover-bg: #0066CC;
+        --vmc-menu-children-hover-text-color: #FFFFFF;
+        --vmc-menu-children-active-bg: #FFA500;
+        --vmc-menu-children-active-text-color: #0066CC;
+        --vmc-menu-current-bar-color: #FFD700;
+        --vmc-menu-current-bar-height: 5px;
+    }
+&lt;/style&gt;
 
-                // 初始化菜单
-                const menu = window.VmcMenu('#my-menu', {
-                duration: 400,
-                currentBar: true
-                });</code>
+// 初始化菜单
+const menu = window.VmcMenu('#my-menu', {
+    duration: 400,
+    currentBar: true
+});</pre>
         </div>
     </div>
 </div>
