@@ -15,22 +15,22 @@
   --vmc-menu-font-size: 16px;
   --vmc-menu-font-weight: normal;
   --vmc-menu-icon-size: 20px;
-  --vmc-menu-hover-bg: #C00;
-  --vmc-menu-hover-text-color: #FFF000;
-  --vmc-menu-active-bg: #aaa;
-  --vmc-menu-active-text-color: #000;
+  --vmc-menu-hover-bg: #D10000;
+  --vmc-menu-hover-text-color: #FFD700;
+  --vmc-menu-active-bg: #7e0202;
+  --vmc-menu-active-text-color: #FFD700;
   --vmc-menu-children-height: 45px;
-  --vmc-menu-children-bg: #000;
-  --vmc-menu-children-text-color: #FFF;
+  --vmc-menu-children-bg: #FFD700;
+  --vmc-menu-children-text-color: #390303;
   --vmc-menu-children-font-size: 14px;
   --vmc-menu-children-font-weight: normal;
   --vmc-menu-children-icon-size: 14px;
-  --vmc-menu-children-hover-bg: #555;
-  --vmc-menu-children-hover-text-color: #FFFf00;
-  --vmc-menu-children-active-bg: #ccc;
-  --vmc-menu-children-active-text-color: #000;
-  --vmc-menu-current-bar-color: #000;
-  --vmc-menu-current-bar-height: 3px;
+  --vmc-menu-children-hover-bg: #B10000;
+  --vmc-menu-children-hover-text-color: #FFFFFF;
+  --vmc-menu-children-active-bg: #ec9c0a;
+  --vmc-menu-children-active-text-color: #B10000;
+  --vmc-menu-current-bar-color: #FFD700;
+  --vmc-menu-current-bar-height: 5px;
 }
 
 .vui-menu {
