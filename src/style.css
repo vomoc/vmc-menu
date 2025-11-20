@@ -1,0 +1,182 @@
+@charset "UTF-8";
+/**
+ * VmcMenu 导航菜单插件 v1.1.0
+ * 维米客网页工作室 Vomoc Web Studio
+ * http://www.vomoc.com/vmc/menu/
+ * vomoc@qq.com
+ * 2015/11/15
+ **/
+:root {
+  --vmc-menu-width: 100%;
+  --vmc-menu-height: 60px;
+  --vmc-menu-z-index: 9;
+  --vmc-menu-bg: #B10000;
+  --vmc-menu-text-color: #FFF;
+  --vmc-menu-font-size: 16px;
+  --vmc-menu-font-weight: normal;
+  --vmc-menu-icon-size: 20px;
+  --vmc-menu-hover-bg: #C00;
+  --vmc-menu-hover-text-color: #FFF000;
+  --vmc-menu-active-bg: #aaa;
+  --vmc-menu-active-text-color: #000;
+  --vmc-menu-children-height: 45px;
+  --vmc-menu-children-bg: #000;
+  --vmc-menu-children-text-color: #FFF;
+  --vmc-menu-children-font-size: 14px;
+  --vmc-menu-children-font-weight: normal;
+  --vmc-menu-children-icon-size: 14px;
+  --vmc-menu-children-hover-bg: #555;
+  --vmc-menu-children-hover-text-color: #FFFf00;
+  --vmc-menu-children-active-bg: #ccc;
+  --vmc-menu-children-active-text-color: #000;
+  --vmc-menu-current-bar-color: #000;
+  --vmc-menu-current-bar-height: 3px; }
+
+.vui-menu {
+  position: relative;
+  z-index: var(--vmc-menu-z-index, 9);
+  display: block;
+  width: var(--vmc-menu-width, 100%);
+  height: var(--vmc-menu-height, 40px);
+  padding: 0;
+  margin: 0 auto;
+  background: var(--vmc-menu-bg, #B10000); }
+  .vui-menu a {
+    text-decoration: none; }
+  .vui-menu > .vui-main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none outside none;
+    font-size: 0; }
+    .vui-menu > .vui-main > .vui-item {
+      flex-grow: 1;
+      position: relative;
+      display: block;
+      min-width: 10px;
+      height: 100%;
+      padding: 0;
+      margin: 0; }
+      .vui-menu > .vui-main > .vui-item > .vui-item-value {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border-width: 0;
+        cursor: pointer;
+        font-size: var(--vmc-menu-font-size, 14px);
+        font-weight: var(--vmc-menu-font-weight, normal);
+        color: var(--vmc-menu-text-color, #FFF); }
+        .vui-menu > .vui-main > .vui-item > .vui-item-value.vui-item-hover {
+          background: var(--vmc-menu-hover-bg, #C00);
+          color: var(--vmc-menu-hover-text-color, #FFF); }
+        .vui-menu > .vui-main > .vui-item > .vui-item-value.vui-item-active {
+          background: var(--vmc-menu-active-bg, #FFF);
+          color: var(--vmc-menu-active-text-color, #000); }
+        .vui-menu > .vui-main > .vui-item > .vui-item-value > .vui-item-value-icon {
+          flex-grow: 0;
+          flex-shrink: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: var(--vmc-menu-icon-size, 20px);
+          width: var(--vmc-menu-icon-size, 20px); }
+          .vui-menu > .vui-main > .vui-item > .vui-item-value > .vui-item-value-icon svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            flex-shrink: 0;
+            fill: currentColor;
+            stroke: currentColor; }
+          .vui-menu > .vui-main > .vui-item > .vui-item-value > .vui-item-value-icon img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            flex-shrink: 0; }
+        .vui-menu > .vui-main > .vui-item > .vui-item-value > .vui-item-value-text {
+          flex-grow: 0;
+          flex-shrink: 1;
+          display: block;
+          min-width: 10px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+      .vui-menu > .vui-main > .vui-item > .vui-children {
+        position: absolute;
+        left: 0;
+        display: block;
+        visibility: hidden;
+        padding: 0;
+        margin: 0 auto;
+        border: none;
+        list-style: none outside none;
+        background: var(--vmc-menu-children-bg, #000);
+        z-index: 90; }
+        .vui-menu > .vui-main > .vui-item > .vui-children > .vui-child-item {
+          display: block;
+          height: var(--vmc-menu-children-height, 30px); }
+          .vui-menu > .vui-main > .vui-item > .vui-children > .vui-child-item > .vui-child-value {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 6px;
+            height: 100%;
+            cursor: pointer;
+            box-sizing: border-box;
+            padding: 0 15px;
+            font-size: var(--vmc-menu-children-font-size, 12px);
+            font-weight: var(--vmc-menu-children-font-weight, normal);
+            color: var(--vmc-menu-children-text-color, #FFF); }
+            .vui-menu > .vui-main > .vui-item > .vui-children > .vui-child-item > .vui-child-value.vui-child-hover {
+              background: var(--vmc-menu-children-hover-bg, #555);
+              color: var(--vmc-menu-children-hover-text-color, #FFF); }
+            .vui-menu > .vui-main > .vui-item > .vui-children > .vui-child-item > .vui-child-value.vui-child-active {
+              background: var(--vmc-menu-children-active-bg, #FFF);
+              color: var(--vmc-menu-children-active-text-color, #000); }
+            .vui-menu > .vui-main > .vui-item > .vui-children > .vui-child-item > .vui-child-value > .vui-child-value-icon {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              overflow: hidden;
+              width: var(--vmc-menu-children-icon-size, 18px);
+              height: var(--vmc-menu-children-icon-size, 18px);
+              margin: 0;
+              padding: 0;
+              border-width: 0; }
+              .vui-menu > .vui-main > .vui-item > .vui-children > .vui-child-item > .vui-child-value > .vui-child-value-icon svg {
+                width: 100%;
+                height: 100%;
+                display: block;
+                flex-shrink: 0;
+                fill: currentColor;
+                stroke: currentColor; }
+              .vui-menu > .vui-main > .vui-item > .vui-children > .vui-child-item > .vui-child-value > .vui-child-value-icon img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                flex-shrink: 0; }
+            .vui-menu > .vui-main > .vui-item > .vui-children > .vui-child-item > .vui-child-value > .vui-child-value-text {
+              white-space: nowrap;
+              line-height: 20px; }
+  .vui-menu > .vui-current-bar-box {
+    position: absolute;
+    top: calc(var(--vmc-menu-current-bar-height, 3px) * -1);
+    left: 0;
+    height: var(--vmc-menu-current-bar-height, 3px);
+    width: 100%;
+    overflow: hidden; }
+    .vui-menu > .vui-current-bar-box > .vui-current-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: var(--vmc-menu-current-bar-height, 3px);
+      background: var(--vmc-menu-current-bar-color, #000); }
+
+/*# sourceMappingURL=style.css.map */
