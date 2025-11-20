@@ -4,7 +4,7 @@ VmcMenu 是一款轻量级、高性能的原生 JavaScript 导航菜单插件，
 
 **版本**: v2.0.0  
 **作者**: 维米客网页工作室 (Vomoc Web Studio)  
-**官网**: http://www.vomoc.com/vmc/menu/  
+**演示**: http://vomoc.github.io/vmc-menu/test/demo.html  
 **邮箱**: vomoc@qq.com
 
 ## ✨ 特性
